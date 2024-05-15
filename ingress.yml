@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata: 
+  name: api-ingress
+spec:
+  rules:
+    - host: api.clopez.com
+      http: 
+        paths: 
+        - path: /api
+          pathType: Prefix
+          backend: 
+            service:
+              name: nodeapi
+              port:
+                number: 80
+                
